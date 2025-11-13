@@ -11,7 +11,7 @@ from prompt_toolkit.selection import SelectionType
 
 from .commands.commands import call_command_handler
 from .enums import COMMAND, PROMPT
-from .filters import HasPrefix, InScrollBufferNotSearching, WaitsForConfirmation
+from .filters import has_prefix, in_scroll_buffer_not_searching, waits_for_confirmation
 from .key_mappings import pymux_key_to_prompt_toolkit_key_sequence
 
 if TYPE_CHECKING:
@@ -65,10 +65,10 @@ class PymuxKeyBindings:
         @self.custom_key_bindings.add(
             *self._prefix,
             filter=~(
-                HasPrefix(pymux)
+                has_prefix(pymux)
                 | has_focus(COMMAND)
                 | has_focus(PROMPT)
-                | WaitsForConfirmation(pymux)
+                | waits_for_confirmation(pymux)
             ),
         )
         def enter_prefix_handler(event: E) -> None:
@@ -98,11 +98,11 @@ class PymuxKeyBindings:
         kb = KeyBindings()
 
         # Create filters.
-        has_prefix = HasPrefix(pymux)
-        waits_for_confirmation = WaitsForConfirmation(pymux)
+        has_prefix = has_prefix(pymux)
+        waits_for_confirmation = waits_for_confirmation(pymux)
         prompt_or_command_focus = has_focus(COMMAND) | has_focus(PROMPT)
         display_pane_numbers = Condition(lambda: pymux.display_pane_numbers)
-        in_scroll_buffer_not_searching = InScrollBufferNotSearching(pymux)
+        in_scroll_buffer_not_searching = in_scroll_buffer_not_searching(pymux)
 
         @kb.add(Keys.Any, filter=has_prefix)
         def _(event: E) -> None:
@@ -229,12 +229,12 @@ class PymuxKeyBindings:
         # Create handler and add to Registry.
         filter: Filter
         if needs_prefix:
-            filter = HasPrefix(self.pymux)
+            filter = has_prefix(self.pymux)
         else:
-            filter = ~HasPrefix(self.pymux)
+            filter = ~has_prefix(self.pymux)
 
         filter = filter & ~(
-            WaitsForConfirmation(self.pymux) | has_focus(COMMAND) | has_focus(PROMPT)
+            waits_for_confirmation(self.pymux) | has_focus(COMMAND) | has_focus(PROMPT)
         )
 
         def key_handler(event: E) -> None:

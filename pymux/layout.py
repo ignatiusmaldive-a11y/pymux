@@ -38,7 +38,7 @@ from prompt_toolkit.layout.screen import Char, Screen
 from prompt_toolkit.mouse_events import MouseEvent, MouseEventType
 from prompt_toolkit.widgets import Dialog, FormattedTextToolbar, SearchToolbar, TextArea
 
-from .filters import WaitsForConfirmation
+from .filters import waits_for_confirmation
 from .format import format_pymux_string
 from .log import logger
 
@@ -481,7 +481,7 @@ class LayoutManager:
         """
         Generate the main prompt_toolkit layout.
         """
-        waits_for_confirmation = WaitsForConfirmation(self.pymux)
+        waits_for_confirmation = waits_for_confirmation(self.pymux)
 
         return FloatContainer(
             content=HSplit(
