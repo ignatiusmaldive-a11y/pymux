@@ -16,11 +16,13 @@ setup(
     description='Pure Python terminal multiplexer.',
     long_description=long_description,
     packages=find_packages('.'),
+    # Requires Python 3.7, because of context variables.
+    python_requires=">=3.7.0",
     install_requires = [
-        'prompt_toolkit>=2.0.0,<2.1.0',
-        'ptterm',
-        'six>=1.9.0',
+        'prompt_toolkit>=3.0.0,<3.1.0',
+        'ptterm @ git+https://github.com/ignatiusmaldive-a11y/ptterm.git',
         'docopt>=0.6.2',
+        'pyte>=0.8.2',
     ],
     entry_points={
         'console_scripts': [
