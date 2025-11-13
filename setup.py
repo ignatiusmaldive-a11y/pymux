@@ -20,8 +20,9 @@ setup(
     python_requires=">=3.7.0",
     install_requires = [
         'prompt_toolkit>=3.0.0,<3.1.0',
-        'ptterm',
+        'ptterm @ file:///home/ignat/Documents/TUI%20lover/03-pymux-revive/pttrn-tambien/ptterm',
         'docopt>=0.6.2',
+        'pyte>=0.8.2',
     ],
     entry_points={
         'console_scripts': [
