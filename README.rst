@@ -3,11 +3,13 @@ Pymux
 
 *A terminal multiplexer (like tmux) in Python*
 
+**Maintained Fork**: This is an actively maintained fork of pymux with updated dependencies and compatibility fixes.
+
 ::
 
-    pip install pymux
+    pip install git+https://github.com/ignatiusmaldive-a11y/pymux.git@prompt-toolkit-3.0
 
-.. image :: https://raw.githubusercontent.com/jonathanslenders/pymux/master/images/pymux.png
+.. image :: https://raw.githubusercontent.com/ignatiusmaldive-a11y/pymux/prompt-toolkit-3.0/images/pymux.png
 
 
 Issues, questions, wishes, comments, feedback, remarks? Please create a GitHub
@@ -17,11 +19,11 @@ issue, I appreciate it.
 Installation
 ------------
 
-Simply install ``pymux`` using pip:
+Install the maintained fork using pip:
 
 ::
 
-    pip install pymux
+    pip install git+https://github.com/ignatiusmaldive-a11y/pymux.git@prompt-toolkit-3.0
 
 Start it by typing ``pymux``.
 
@@ -35,8 +37,18 @@ There are serveral programs doing this. The most famous are `GNU Screen
 <https://www.gnu.org/software/screen/>`_ and `tmux <https://tmux.github.io/>`_.
 
 Pymux is written entirely in Python. It doesn't need any C extension. It runs
-on all Python versions from 2.6 until 3.5. It should work on OS X and Linux.
+on Python 3.7+. It should work on OS X and Linux.
 
+
+Updates in this fork
+--------------------
+
+This maintained fork includes several important updates:
+
+- **Updated dependencies**: Compatible with prompt_toolkit 3.x and pyte >=0.8.2
+- **Forked ptterm**: Uses a custom ptterm fork that ensures compatibility with the latest pyte
+- **Python 3.7+**: Requires modern Python versions for better async support
+- **Active maintenance**: Unlike the original repository, this fork is actively maintained
 
 Compared to tmux
 ----------------
@@ -86,15 +98,15 @@ More screenshots
 
 24 bit color support and the autocompletion menu:
 
-.. image :: https://raw.githubusercontent.com/jonathanslenders/pymux/master/images/menu-true-color.png
+.. image :: https://raw.githubusercontent.com/ignatiusmaldive-a11y/pymux/prompt-toolkit-3.0/images/menu-true-color.png
 
 What happens if another client with a smaller screen size attaches:
 
-.. image :: https://raw.githubusercontent.com/jonathanslenders/pymux/master/images/multiple-clients.png
+.. image :: https://raw.githubusercontent.com/ignatiusmaldive-a11y/pymux/prompt-toolkit-3.0/images/multiple-clients.png
 
 When a pane enters copy mode, search results are highlighted:
 
-.. image :: https://raw.githubusercontent.com/jonathanslenders/pymux/master/images/copy-mode.png
+.. image :: https://raw.githubusercontent.com/ignatiusmaldive-a11y/pymux/prompt-toolkit-3.0/images/copy-mode.png
 
 
 Why create a tmux clone?
@@ -144,7 +156,7 @@ Configuring
 
 Create a file ``~/.pymux.conf``, and populate it with commands, like you can
 enter at the command line. There is an `example config
-<https://github.com/jonathanslenders/pymux/blob/master/examples/example-config.conf>`_
+<https://github.com/ignatiusmaldive-a11y/pymux/blob/prompt-toolkit-3.0/examples/example-config.conf>`_
 in the examples directory.
 
 
